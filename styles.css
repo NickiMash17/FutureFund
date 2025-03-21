@@ -1,0 +1,1060 @@
+/*=============================================
+=            Theme Configuration             =
+=============================================*/
+/* 
+  The root section defines our color palette and core design variables.
+  These variables control the entire theme of our application.
+*/
+
+:root {
+    --primary: #0d6efd;
+    --primary-dark: #0b5ed7;
+    --primary-light: #cfe2ff;
+    --primary-very-light: #edf5ff;
+    --secondary: #6c757d;
+    --accent: #ff7b25;
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --mid-gray: #dee2e6;
+    --dark-gray: #343a40;
+    --success: #198754;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s ease;
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+    --box-shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --box-shadow-md: 0 8px 15px rgba(0, 0, 0, 0.08);
+    --box-shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.1);
+    --primary-transparent: rgba(13, 110, 253, 0.1);
+    --space-sm: 0.75rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --font-size-lg: 1.5rem;
+  
+    /* Dark mode colors */
+    --bg-dark: #121212;
+    --card-dark: #1e1e1e;
+    --text-dark: #ffffff;
+    --border-dark: #333333;
+    --primary-dark-mode: #4d94ff;
+  }
+  
+  /*=============================================
+  =            Dark Mode Theming               =
+  =============================================*/
+  /* 
+    Dark mode styles override default colors and provide
+    an alternative color scheme for better night viewing
+  */
+  
+  [data-theme="dark"] {
+    --white: var(--bg-dark);
+    --light-gray: var(--card-dark);
+    --dark-gray: var(--text-dark);
+    --primary: var(--primary-dark-mode);
+    --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    --bg-section: #1a1a1a;
+    --text-muted: #a0a0a0;
+    --card-hover-bg: #2a2a2a;
+    --section-gradient: linear-gradient(135deg, #121212, #1a1a1a);
+  }
+  
+  [data-theme="dark"] .card,
+  [data-theme="dark"] #retirementSavingsCalculator,
+  [data-theme="dark"] #result,
+  [data-theme="dark"] #next-step,
+  [data-theme="dark"] .results-card {
+    background: var(--card-dark);
+    border-color: var(--border-dark);
+  }
+  
+  [data-theme="dark"] .form-control {
+    background-color: var(--bg-dark);
+    border-color: var(--border-dark);
+    color: var(--text-dark);
+  }
+  
+  [data-theme="dark"] .form-control:focus {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+  
+  [data-theme="dark"] body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+  
+  [data-theme="dark"] .bg-light {
+    background-color: var(--bg-section) !important;
+  }
+  
+  [data-theme="dark"] .hero-section {
+    background-color: var(--bg-section);
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(77, 148, 255, 0.05) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(77, 148, 255, 0.05) 0%, transparent 20%);
+  }
+  
+  [data-theme="dark"] .text-muted,
+  [data-theme="dark"] .text-secondary {
+    color: var(--text-muted) !important;
+  }
+  
+  [data-theme="dark"] .feature-icon,
+  [data-theme="dark"] .process-icon {
+    background-color: var(--primary-dark-mode);
+  }
+  
+  [data-theme="dark"] .testimonial-avatar {
+    background-color: var(--primary-dark-mode);
+  }
+  
+  [data-theme="dark"] .card {
+    background: var(--card-dark);
+  }
+  
+  [data-theme="dark"] .card:hover {
+    background: var(--card-hover-bg);
+  }
+  
+  [data-theme="dark"] .accordion-item {
+    background-color: var(--card-dark);
+    border-color: var(--border-dark);
+  }
+  
+  [data-theme="dark"] .accordion-button {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+  }
+  
+  [data-theme="dark"] .accordion-button:not(.collapsed) {
+    background-color: var(--primary-dark-mode);
+    color: var(--text-dark);
+  }
+  
+  [data-theme="dark"] .accordion-body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+  
+  [data-theme="dark"] .btn-outline-primary {
+    border-color: var(--primary-dark-mode);
+    color: var(--primary-dark-mode);
+  }
+  
+  [data-theme="dark"] .btn-outline-primary:hover {
+    background-color: var(--primary-dark-mode);
+    color: var(--text-dark);
+  }
+  
+  [data-theme="dark"] .py-5.bg-primary {
+    background: var(--section-gradient) !important;
+  }
+  
+  [data-theme="dark"] footer.bg-dark {
+    background-color: #0a0a0a !important;
+  }
+  
+  [data-theme="dark"] .gradient-divider {
+    background: linear-gradient(90deg, transparent, var(--primary-dark-mode), #6610f2, transparent);
+  }
+  
+  [data-theme="dark"] .developer-tag {
+    background: linear-gradient(135deg, rgba(77, 148, 255, 0.1), rgba(102, 16, 242, 0.1));
+  }
+  
+  /*=============================================
+  =            Global Layout & Typography       =
+  =============================================*/
+  /* 
+    These styles define the fundamental structure and
+    text appearance across the entire application
+  */
+  
+  body {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    color: var(--dark-gray);
+    background-color: var(--white);
+    line-height: 1.6;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(13, 110, 253, 0.03) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(13, 110, 253, 0.03) 0%, transparent 20%);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--dark-gray);
+  }
+  
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  a:hover {
+    color: var(--primary-dark);
+  }
+  
+  /*=============================================
+  =            Interactive Elements            =
+  =============================================*/
+  /* 
+    Buttons, forms, and other interactive elements
+    that users directly engage with
+  */
+  
+  .btn {
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    transition: var(--transition);
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: none;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+    padding: 0.85rem 2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.2);
+  }
+  
+  .btn-lg {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  /*=============================================
+  =            Navigation Components           =
+  =============================================*/
+  /* 
+    Navigation styles control the header menu and
+    overall site navigation experience
+  */
+  
+  .container {
+    max-width: 1200px;
+    flex: 1;
+  }
+  
+  /* Enhanced Navbar Styles */
+  .navbar {
+    padding: 1.5rem 0; /* Consistent padding */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-height: 100px; /* Minimum height */
+    height: 100px; /* Enforce fixed height */
+    display: flex; /* Ensure flex layout */
+    align-items: center; /* Center items vertically */
+    border: 2px solid transparent; /* Consistent border */
+  }
+  
+  /* Brand Styling */
+  .navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 0; /* Consistent padding */
+  }
+  
+  /* Nav Items Styling */
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem; /* Consistent padding */
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  .brand-icon-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .navbar-brand:hover .brand-icon-container {
+    transform: rotate(15deg);
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .brand-text {
+    font-size: 1.25rem;
+  }
+  
+  /* Nav Items Styling - Fixed Spacing */
+  .navbar-nav .nav-item {
+    margin: 0 0.25rem;
+  }
+  
+  .navbar-nav .nav-link {
+    position: relative;
+    padding: 0.75rem 1rem; /* Consistent padding for nav links */
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .navbar-nav .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+  }
+  
+  /* 🚀 Active Navigation Link Animation Magic ✨ 
+     Creates a sleek underline effect on hover/active states */
+  .navbar-nav .nav-link:hover::after,
+  .navbar-nav .nav-link.active::after {
+    width: 40%;
+    opacity: 1;
+  }
+  
+  /* Get Started Button - Consistent Styling */
+  /* 🎯 Get Started Button - Enhanced UI Magic ✨
+     Designed for maximum click-ability and visual appeal
+     - Custom shadow effects
+     - Smooth hover transitions
+     - Perfect padding ratios
+  */
+  .navbar .btn-light {
+    font-weight: 600;
+    font-size: 0.875rem; /* Golden ratio font sizing */
+    padding: 0.5rem 1.25rem; /* Perfect touch target size */
+    border-radius: 50px; /* Pill-shaped smoothness */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-left: 0.5rem; /* Balanced spacing */
+  }
+  
+  /* ⚡ Hover State Enhancement
+     Adds depth and movement to engage users */
+  .navbar .btn-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Improved Mobile Menu */
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      background-color: var(--primary);
+      margin-top: 0.75rem;
+      border-radius: 8px;
+      padding: 0.75rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-nav .nav-item {
+      width: 100%;
+      margin: 0 0 0.5rem 0;
+    }
+    
+    .navbar-nav .nav-link {
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+    }
+    
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    /* Center the button on mobile */
+    .navbar-nav .nav-item:last-child {
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+    
+    .navbar-nav .btn-light {
+      width: 100%;
+    }
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background-color: var(--primary-very-light);
+    padding: 6rem 0 5rem;;
+  }
+  
+  .hero-section .container {
+    padding-top: 4rem; /* Space above the content */
+    padding-bottom: 4rem; /* Space below the content */
+  }
+  .hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-section img {
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Feature Icons */
+  .feature-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.2);
+  }
+  
+  /* Cards */
+  .card {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+    border: none;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 1.75rem;
+  }
+  
+  /* Process Steps */
+  .process-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  
+  /* Testimonials */
+  .testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  /* Accordion */
+  .accordion-button:not(.collapsed) {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    box-shadow: none;
+  }
+  
+  .accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--primary-light);
+  }
+  
+  /* Enhanced Form Controls */
+  .form-control {
+    border-radius: 12px;
+    padding: 0.85rem 1.2rem;
+    background-color: white;
+    border: 1px solid rgba(222, 226, 230, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  label.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Form Label Icons */
+  .form-label::before {
+    font-family: "Font Awesome 6 Free";
+    margin-right: 8px;
+    font-weight: 900;
+    color: var(--primary);
+    width: 20px;
+  }
+  
+  label[for*="Age"]::before { content: "\f007"; }
+  label[for*="RetirementAge"]::before { content: "\f5b5"; }
+  label[for*="Income"]::before { content: "\f0d6"; }
+  label[for*="Contribution"]::before { content: "\f4c0"; }
+  label[for*="InterestRate"]::before { content: "\f201"; }
+  label[for*="InflationRate"]::before { content: "\f068"; }
+  
+  /* Calculator Page Specific Styles */
+  #retirementSavingsCalculator {
+    background: linear-gradient(135deg, #ffffff, #f8f9ff);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(13, 110, 253, 0.1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(13, 110, 253, 0.1);
+    transition: all 0.4s ease;
+  }
+  
+  #retirementSavingsCalculator::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(13, 110, 253, 0.08), transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  #retirementSavingsCalculator::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(13, 110, 253, 0.05), transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  #retirementSavingsCalculator:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-lg);
+  }
+  
+  #result {
+    background: linear-gradient(135deg, #f1f5ff, #ffffff);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(13, 110, 253, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  #result::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  }
+  
+  #retirement-amount {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.08);
+    animation: gentle-pulse 2s infinite alternate;
+  }
+  
+  @keyframes gentle-pulse {
+    from { box-shadow: 0 8px 20px rgba(13, 110, 253, 0.08); }
+    to { box-shadow: 0 10px 25px rgba(13, 110, 253, 0.18); }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 3rem 0;
+    }
+    
+    .hero-section h1 {
+      font-size: 2.5rem;
+    }
+    
+    #retirementSavingsCalculator,
+    #result,
+    #next-step {
+      padding: 1.5rem;
+    }
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  /* Header for calculator page */
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+  }
+  
+  header h1 {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    color: var(--secondary);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  footer {
+    margin-top: auto;
+  }
+  
+  /* Enhanced Next Steps Section */
+  #next-step {
+    background-color: white;
+    border-radius: 16px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    border: none;
+  }
+  
+  #next-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, #0d6efd, #0b5ed7, #6610f2);
+    z-index: 1;
+  }
+  
+  #next-step h2 {
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+  }
+  
+  #next-step h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    bottom: -10px;
+    left: 0;
+    background: linear-gradient(90deg, var(--primary), transparent);
+    border-radius: 10px;
+  }
+  
+  /* List Group Item Style Updates */
+  .list-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .list-group-item {
+    list-style-type: none;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+    padding: 1rem 1.5rem;
+  }
+  
+  .list-group-item:hover {
+    background-color: var(--primary-very-light);
+    border-left: 3px solid var(--primary);
+    transform: translateX(5px);
+  }
+  
+  .list-group-item::before {
+    content: "\f105";
+    font-family: "Font Awesome 6 Free";
+    margin-right: 10px;
+    font-weight: 900;
+    color: var(--primary);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  
+  .list-group-item:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Add the brokerage link cards styling */
+  #next-step .list-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  
+  /* Company-specific colors and hover effects */
+  #next-step .list-group-item {
+    padding: 0;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    height: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Add the company colors */
+  #next-step .list-group-item:nth-child(1) { --company-color: #00703c; }
+  #next-step .list-group-item:nth-child(2) { --company-color: #000000; }
+  /* ...rest of company colors... */
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    #next-step .list-group {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #retirementSavingsCalculator,
+    #result,
+    #next-step {
+      padding: 2rem;
+    }
+    
+    #next-step .list-group {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
+  
+  @media (max-width: 576px) {
+    #next-step .list-group {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+  
+  /* Disclaimer Section */
+  .disclaimer {
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 3rem 0;
+    border-left: 4px solid var(--secondary);
+    box-shadow: var(--box-shadow-sm);
+  }
+  
+  .disclaimer h4 {
+    color: var(--secondary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .disclaimer p {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Loading Effect for Calculate Button */
+  .btn-loading {
+    position: relative;
+  }
+  
+  .btn-loading .spinner {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .btn-loading.is-loading {
+    color: transparent;
+  }
+  
+  .btn-loading.is-loading .spinner {
+    display: block;
+  }
+  
+  /* Add the new animations at the end */
+  @keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  @keyframes pulseEffect {
+    from { box-shadow: 0 0 10px rgba(13, 110, 253, 0.1); }
+    to { box-shadow: 0 0 20px rgba(13, 110, 253, 0.3); }
+  }
+  /* Footer Logo*/
+  
+  .enhanced-footer {
+    padding: 2rem 0 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gradient-divider {
+    height: 3px;
+    border: none;
+    background: linear-gradient(90deg, transparent, #0d6efd, #6610f2, transparent);
+    margin-bottom: 2rem;
+    opacity: 1;
+  }
+  
+  .developer-signature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 1rem;
+  }
+  
+  .logo-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Enhanced Logo Image Styles */
+  .developer-footer-logo {
+    max-width: 180px; 
+    height: auto;
+    border-radius: 12px; /* Soft rounded corners */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)); /* Adds depth */
+    transition: all 0.3s ease; /* Smooth hover effect */
+  }
+  
+  /* Hover effect for the logo */
+  .developer-footer-logo:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2)); /* Deeper shadow on hover */
+    border-color: rgba(255, 255, 255, 0.3); /* Slightly brighter border on hover */
+  }
+  
+  /*subtle shine effect on hover */
+  .developer-footer-logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.5s ease;
+    z-index: 1;
+    pointer-events: none; /
+  }
+  
+  .developer-footer-logo:hover::before {
+    left: 100%; 
+  }
+  
+  .glow-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(13,110,253,0.2) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulse 3s infinite alternate;
+  }
+  
+  .developer-info {
+    text-align: center;
+  }
+  
+  .copyright {
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+  
+  .developer-tag {
+    background: linear-gradient(135deg, #0d6efd10, #6610f210);
+    border-radius: 50px;
+    padding: 0.6rem 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .developer-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13,110,253,0.15);
+  }
+  
+  .designer-text {
+    color: #6c757d;
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+  
+  .company-name {
+    font-weight: 700;
+    background: linear-gradient(90deg, #0d6efd, #6610f2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 0.3rem;
+    font-size: 0.95rem;
+    position: relative;
+  }
+  
+  .company-name::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, #0d6efd, #6610f2);
+  }
+  
+  .tagline {
+    color: #6c757d;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+  
+  @keyframes pulse {
+    from { opacity: 0.4; transform: translate(-50%, -50%) scale(0.95); }
+    to { opacity: 0.7; transform: translate(-50%, -50%) scale(1.05); }
+  }
+  
+  @media (min-width: 768px) {
+    .developer-signature {
+      flex-direction: row;
+      justify-content: center;
+      gap: 2rem;
+    }
+    
+    .logo-container {
+      margin-bottom: 0;
+    }
+    
+    .developer-info {
+      text-align: left;
+    }
+  }
+  @media (max-width: 576px) {
+    .hero-section {
+      padding: 3rem 0 2rem; 
+    }
+  
+    .hero-section .container {
+      padding-top: 1.5rem; 
+      padding-bottom: 1.5rem; 
+    }
+  }
+  /* styles for chart */
+  .chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin: 20px 0;
+  }
+  .results-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .results-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .result-item {
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  .result-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0d6efd;
+  }
+  .result-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  .legend-color {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border-radius: 3px;
+  }
+  
+  /* Dark mode toggle button */
+  .theme-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle:hover {
+    transform: rotate(15deg);
+  }
