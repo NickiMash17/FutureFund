@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 
+        Head Section
+        Contains meta information, SEO tags, and resource links
+        Critical for page performance and search engine optimization
+    -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FutureFund | Retirement Savings Calculator</title>
+        <link rel="stylesheet" href="assets/styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <!-- Add SEO meta tags -->
+        <meta name="author" content="Your Name">
+        <meta name="robots" content="index, follow">
+        <meta property="og:title" content="FutureFund | Retirement Savings Calculator">
+        <meta property="og:description" content="Plan your retirement with FutureFund's easy-to-use calculator. Get personalized projections and take control of your financial future.">
+        <meta property="og:image" content="#">
+        <meta property="og:url" content="#">
+    </head>
+
+    <!-- 
+        Navigation Section
+        Provides site-wide navigation and theme controls
+        Consistent across all pages for unified user experience
+    -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <!-- Brand/Logo with enhanced styling -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="brand-icon-container me-2">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <span class="brand-text">FutureFund</span>
+            </a>
+
+            <!-- Toggle Button for Mobile with custom styling -->
+            <button class="navbar-toggler border-0 shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links with enhanced styling -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="index.html#home">
+                            <i class="fas fa-home me-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="index.html#about">
+                            <i class="fas fa-info-circle me-1"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="calculator.html">
+                            <i class="fas fa-calculator me-1"></i> Calculator
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="index.html#contact">
+                            <i class="fas fa-envelope me-1"></i> Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" onclick="toggleTheme()">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn btn-light text-primary btn-sm px-3 rounded-pill fw-bold" href="calculator.html">
+                            <i class="fas fa-arrow-right me-1"></i> Get Started
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+        Main Content Sections
+        Each section serves a specific purpose in user engagement
+        Organized for optimal information hierarchy
+    -->
+    <body>
+        <!-- Hero/Welcome Section - Main landing area -->
+        <section class="hero-section py-5" id="home">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h1 class="display-4 fw-bold text-primary mb-3">Plan Your Future With Confidence</h1>
+                        <p class="lead mb-4">Our retirement calculator helps you visualize your financial journey and make informed decisions for a secure retirement.</p>
+                        <div class="d-flex gap-3">
+                            <a href="calculator.html" class="btn btn-primary btn-lg">
+                                <i class="fas fa-calculator me-2"></i>Try Calculator
+                            </a>
+                            <a href="#howItWorks" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-info-circle me-2"></i>Learn More
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative">
+                            <img src="images/hero.webp" alt="Retirement planning" class="img-fluid rounded shadow">
+                            <div class="position-absolute top-0 end-0 bg-primary text-white p-3 rounded-circle shadow-lg mt-3 me-3">
+                                <i class="fas fa-chart-line fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Three-Step Process Overview Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Plan Your Retirement In 3 Easy Steps</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card border-0 h-100 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto mb-4">
+                                    <i class="fas fa-user-edit"></i>
+                                </div>
+                                <h5 class="card-title">Enter Your Details</h5>
+                                <p class="card-text">Input your current age, income, and retirement goals into our easy-to-use calculator.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0 h-100 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto mb-4">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <h5 class="card-title">Get Your Projection</h5>
+                                <p class="card-text">Receive personalized retirement projections based on your financial situation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0 h-100 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="feature-icon bg-primary text-white rounded-circle mx-auto mb-4">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <h5 class="card-title">Connect With Experts</h5>
+                                <p class="card-text">Choose from our network of trusted financial providers to start your retirement journey.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section - Company Information -->
+        <section class="container py-5" id="about">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                    <div class="position-relative">
+                        <img src="images/calculator.jpg" alt="Planning for retirement" class="img-fluid rounded shadow">
+                        <div class="position-absolute top-0 start-0 translate-middle bg-primary p-3 rounded shadow">
+                            <i class="fas fa-lightbulb fa-2x text-white"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <h2 class="mb-4">Take Control Of Your Financial Future</h2>
+                    <p class="lead mb-4">
+                        Planning for retirement doesn't have to be overwhelming. Our easy-to-use calculator provides you with clear insights to help you make informed decisions.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            Calculate your estimated retirement savings
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            Adjust variables to see different scenarios
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            Get personalized recommendations
+                        </li>
+                    </ul>
+                    <a href="calculator.html" class="btn btn-primary">
+                        <i class="fas fa-calculator me-2"></i>Start Your Retirement Plan
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Testimonials Section -->
+        <section class="py-5 bg-light" id="testimonials">
+            <div class="container">
+                <h2 class="text-center mb-5">What Our Users Say</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card border-0 h-100 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="card-text mb-3">"FutureFund's calculator gave me the clarity I needed to adjust my savings and set realistic retirement goals."</p>
+                                <div class="d-flex align-items-center">
+                                    <div class="testimonial-avatar bg-primary text-white">JP</div>
+                                    <div class="ms-3">
+                                        <h6 class="mb-0">John P.</h6>
+                                        <small class="text-muted">Cape Town</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0 h-100 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="card-text mb-3">"I appreciate how simple yet powerful this tool is. It helped me understand exactly what I need to save monthly."</p>
+                                <div class="d-flex align-items-center">
+                                    <div class="testimonial-avatar bg-primary text-white">SM</div>
+                                    <div class="ms-3">
+                                        <h6 class="mb-0">Sarah M.</h6>
+                                        <small class="text-muted">Johannesburg</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0 h-100 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                                <p class="card-text mb-3">"The connections to financial providers was invaluable. I found an advisor who helped me implement my retirement plan."</p>
+                                <div class="d-flex align-items-center">
+                                    <div class="testimonial-avatar bg-primary text-white">TN</div>
+                                    <div class="ms-3">
+                                        <h6 class="mb-0">Thabo N.</h6>
+                                        <small class="text-muted">Durban</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frequently Asked Questions Section -->
+        <section class="container py-5" id="faq">
+            <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-0 mb-3 shadow-sm">
+                            <h3 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    How does the retirement calculator work?
+                                </button>
+                            </h3>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our calculator uses your current age, income, desired retirement age, and other factors to estimate how much money you'll have at retirement. It accounts for inflation and compound interest to give you the most accurate projection possible.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm">
+                            <h3 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    How much should I save for retirement?
+                                </button>
+                            </h3>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Financial experts typically recommend saving 15-20% of your income for retirement. However, the exact amount depends on your current age, desired retirement lifestyle, and when you plan to retire. Our calculator can help you determine a personalized target.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm">
+                            <h3 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    When should I start saving for retirement?
+                                </button>
+                            </h3>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    The best time to start saving for retirement is as early as possible. Thanks to compound interest, even small amounts saved in your 20s and 30s can grow significantly by retirement age. However, it's never too late to start - our calculator can help you create a plan regardless of your current age.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="calculator.html" class="btn btn-primary">See More FAQs</a>
+            </div>
+        </section>
+
+        <!-- Call-to-Action Banner Section -->
+        <section class="py-5 bg-primary text-white">
+            <div class="container text-center">
+                <h2 class="mb-4">Ready to Plan Your Financial Future?</h2>
+                <p class="lead mb-4">Take the first step toward a secure retirement today.</p>
+                <a href="calculator.html" class="btn btn-light btn-lg">
+                    <i class="fas fa-calculator me-2"></i>Get Started Now
+                </a>
+            </div>
+        </section>
+
+        <!-- Calculator Process Explanation Section -->
+        <section class="container py-5" id="howItWorks">
+            <h2 class="text-center mb-5">How Our Calculator Works</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="d-flex">
+                        <div class="process-icon bg-primary text-white rounded-circle me-3">1</div>
+                        <div>
+                            <h5>Input Your Information</h5>
+                            <p>Enter your current age, income, savings, and retirement goals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="d-flex">
+                        <div class="process-icon bg-primary text-white rounded-circle me-3">2</div>
+                        <div>
+                            <h5>Customize Variables</h5>
+                            <p>Adjust inflation rates, investment returns, and retirement age to explore different scenarios.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="d-flex">
+                        <div class="process-icon bg-primary text-white rounded-circle me-3">3</div>
+                        <div>
+                            <h5>Review Your Results</h5>
+                            <p>Get detailed projections with charts showing your expected retirement funds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="container py-5" id="contact">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-center mb-5">Get In Touch</h2>
+                    <div class="card shadow border-0">
+                        <div class="card-body p-4">
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="subject" class="form-label">Subject</label>
+                                        <input type="text" class="form-control" id="subject">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" rows="5" required></textarea>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section with Company Info and Links -->
+        <footer class="bg-dark text-white py-4 mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <a class="d-flex align-items-center text-white text-decoration-none mb-3" href="#">
+                            <i class="fas fa-chart-line me-2"></i>
+                            <span class="h5 mb-0">FutureFund</span>
+                        </a>
+                        <p>Helping you plan for a secure financial future with confidence.</p>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="text-white" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-white" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white" title="Connect on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-white" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                        <h5 class="mb-3">Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+                            <li><a href="#about" class="text-white text-decoration-none">About</a></li>
+                            <li><a href="calculator.html" class="text-white text-decoration-none">Calculator</a></li>
+                            <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                        <h5 class="mb-3">Resources</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white text-decoration-none" title="Read our financial articles">Financial Blog</a></li>
+                            <li><a href="#" class="text-white text-decoration-none" title="Download retirement guide">Retirement Guide</a></li>
+                            <li><a href="#" class="text-white text-decoration-none" title="Common questions">FAQ</a></li>
+                            <li><a href="#" class="text-white text-decoration-none" title="Privacy information">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <h5 class="mb-3">Contact Info</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>123 Finance Street, Cape Town</li>
+                            <li class="mb-2"><i class="fas fa-phone me-2"></i>(021) 123-4567</li>
+                            <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@futurefund.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="enhanced-footer">
+                <hr class="gradient-divider">
+
+                <div class="developer-signature">
+                    <div class="logo-container">
+                        <img src="images/logo.jpg" alt="Cipher's Den Logo" class="developer-footer-logo">
+                        <div class="glow-effect"></div>
+                    </div>
+
+                    <div class="developer-info">
+                        <p class="copyright">&copy; 2025 FutureFund. All rights reserved.</p>
+                        <div class="developer-tag">
+                            <span class="designer-text">Developed by</span>
+                            <span class="company-name">Cipher's Den</span>
+                            <span class="tagline">Future Tech Leaders</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts Section -->
+        <!-- Add Bootstrap JS and dependencies -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+        <script src="assets/script.js"></script>
+    </body>
+</html>
