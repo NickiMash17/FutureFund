@@ -163,7 +163,42 @@
 [data-theme="dark"] .developer-tag {
   background: linear-gradient(135deg, rgba(77, 148, 255, 0.1), rgba(102, 16, 242, 0.1));
 }
+/* Dark Mode Navbar Styles */
+[data-theme="dark"] .navbar {
+  background-color: #1a1a1a !important; /* Dark grey color */
+  border-bottom: 1px solid #333; /* Subtle border */
+}
 
+[data-theme="dark"] .navbar-brand,
+[data-theme="dark"] .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="dark"] .navbar-brand:hover,
+[data-theme="dark"] .navbar-nav .nav-link:hover {
+  color: white !important;
+}
+
+[data-theme="dark"] .brand-icon-container {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Active state in dark mode */
+[data-theme="dark"] .navbar-nav .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .navbar-nav .nav-link.active::after {
+  background-color: var(--primary-dark-mode);
+}
 /*=============================================
 =            Global Layout & Typography       =
 =============================================*/
