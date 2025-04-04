@@ -587,3 +587,87 @@ function updateProgressSteps() {
   });
   console.log("Progress steps updated");
 }
+
+
+// Enhanced Navigation Active State Management
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const currentPage = window.location.pathname.split('/').pop();
+  
+  // Function to update active nav links
+  function updateActiveNav() {
+    // First reset all active states
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+    });
+    
+    // If on calculator page, highlight calculator link
+    if (currentPage === 'calculator.html') {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === 'calculator.html') {
+          link.classList.add('active');
+        }
+      });
+      return;
+    }
+    
+    // For index page, handle section highlighting
+    if (currentPage === 'index.html' || currentPage === '') {
+      const sections = document.querySelectorAll('section[id]');
+      let currentSection = '';
+      
+      // Find which section is currently in view
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.scrollY >= (sectionTop - 300)) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      
+      // Highlight the corresponding nav link
+      navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === `index.html#${currentSection}` || 
+            (linkHref === 'index.html' && currentSection === 'home')) {
+          link.classList.add('active');
+        }
+      });
+    }
+  }
+  
+  // Initial update
+  updateActiveNav();
+  
+  // Update on scroll
+  window.addEventListener('scroll', function() {
+    if (currentPage === 'index.html' || currentPage === '') {
+      updateActiveNav();
+    }
+  });
+  
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 100,
+          behavior: 'smooth'
+        });
+        
+        // Update URL without reload
+        history.pushState(null, null, targetId);
+        
+        // Update active nav after scroll completes
+        setTimeout(updateActiveNav, 1000);
+      }
+    });
+  });
+});
