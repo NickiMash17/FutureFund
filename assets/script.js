@@ -671,3 +671,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// Dark mode for navbar
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  
+  // Update icon
+  const themeIcon = document.querySelector('.theme-toggle i');
+  if (themeIcon) {
+    themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  }
+  
+  // Force navbar color update (may be needed for Bootstrap)
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    if (newTheme === 'dark') {
+      navbar.classList.remove('bg-primary');
+      navbar.classList.add('bg-dark');
+    } else {
+      navbar.classList.remove('bg-dark');
+      navbar.classList.add('bg-primary');
+    }
+  }
+}
