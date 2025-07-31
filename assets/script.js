@@ -49,6 +49,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  document.getElementById("retirementForm").addEventListener("submit", function (e) {
+  const currentAge = parseInt(document.getElementById("currentAge").value, 10);
+  const retirementAge = parseInt(document.getElementById("retirementAge").value, 10);
+
+  if (currentAge >= retirementAge) {
+    e.preventDefault();
+    alert("Retirement age must be greater than current age.");
+    return;
+  }
+
+  // Proceed with calculations if valid
+});
+
   // Form submission
   const form = document.getElementById('retirementForm');
   if (form) {
@@ -700,3 +713,6 @@ function toggleTheme() {
     }
   }
 }
+
+
+
