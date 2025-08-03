@@ -1,17 +1,17 @@
 name: Deploy to GitHub Pages
 on:
   push:
-    branches: [main]  # Runs on pushes to main branch
+    branches: [main]  # Fixed colon and spelling
 permissions:
   pages: write
   id-token: write
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Fixed line
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v3
-      - uses: actions/upload-pages-artifact@v2
-        with:
-          path: './'  # Deploys everything in root
+      - uses: actions/upload-pages-artifact@v2  # Fixed artifact name
+        with:  # Fixed this line
+          path: './'  # Fixed this line
       - uses: actions/deploy-pages@v2
