@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirement Savings Calculator with Multi-Currency</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .calculator {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9f7ef;
+            border-radius: 4px;
+            display: none;
+        }
+        .currency-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Retirement Savings Calculator</h1>
+        
+        <div class="form-group">
+            <label for="current-age">Current Age:</label>
+            <input type="number" id="current-age" min="18" max="100" value="30">
+        </div>
+        
+        <div class="form-group">
+            <label for="retirement-age">Retirement Age:</label>
+            <input type="number" id="retirement-age" min="18" max="100" value="65">
+        </div>
+        
+        <div class="form-group">
+            <label for="current-savings">Current Savings:</label>
+            <input type="number" id="current-savings" min="0" value="50000">
+        </div>
+        
+        <div class="form-group">
+            <label for="monthly-contribution">Monthly Contribution:</label>
+            <input type="number" id="monthly-contribution" min="0" value="500">
+        </div>
+        
+        <div class="form-group">
+            <label for="annual-return">Expected Annual Return (%):</label>
+            <input type="number" id="annual-return" min="0" max="20" step="0.1" value="6">
+        </div>
+        
+        <div class="form-group">
+            <label for="currency">Currency:</label>
+            <select id="currency">
+                <option value="USD">US Dollar (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">British Pound (GBP)</option>
+                <option value="JPY">Japanese Yen (JPY)</option>
+                <option value="CAD">Canadian Dollar (CAD)</option>
+                <option value="AUD">Australian Dollar (AUD)</option>
+                <option value="CNY">Chinese Yuan (CNY)</option>
+                <option value="INR">Indian Rupee (INR)</option>
+            </select>
+            <div class="currency-info" id="exchange-rate-info"></div>
+        </div>
+        
+        <button onclick="calculateRetirement()">Calculate</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Exchange rates (simplified - in a real app, you'd fetch these from an API)
+        const exchangeRates = {
+            USD: { rate: 1, symbol: '$' },
+            EUR: { rate: 0.93, symbol: '€' },
+            GBP: { rate: 0.80, symbol: '£' },
+            JPY: { rate: 150, symbol: '¥' },
+            CAD: { rate: 1.36, symbol: 'CA$' },
+            AUD: { rate: 1.50, symbol: 'A$' },
+            CNY: { rate: 7.20, symbol: '¥' },
+            INR: { rate: 83, symbol: '₹' }
+        };
+
+        // Update exchange rate info when currency changes
+        document.getElementById('currency').addEventListener('change', function() {
+            updateExchangeRateInfo();
+        });
+
+        // Initial exchange rate info update
+        updateExchangeRateInfo();
+
+        function updateExchangeRateInfo() {
+            const currency = document.getElementById('currency').value;
+            const rate = exchangeRates[currency].rate;
+            const symbol = exchangeRates[currency].symbol;
+            
+            document.getElementById('exchange-rate-info').textContent = 
+                `1 USD = ${symbol}${rate.toFixed(2)} (approximate)`;
+        }
+
+        function calculateRetirement() {
+            // Get input values
+            const currentAge = parseInt(document.getElementById('current-age').value);
+            const retirementAge = parseInt(document.getElementById('retirement-age').value);
+            const currentSavings = parseFloat(document.getElementById('current-savings').value);
+            const monthlyContribution = parseFloat(document.getElementById('monthly-contribution').value);
+            const annualReturn = parseFloat(document.getElementById('annual-return').value) / 100;
+            const currency = document.getElementById('currency').value;
+            
+            // Validate inputs
+            if (currentAge >= retirementAge) {
+                alert("Retirement age must be greater than current age");
+                return;
+            }
+            
+            // Calculate years until retirement
+            const years = retirementAge - currentAge;
+            
+            // Calculate future value
+            let futureValue = currentSavings;
+            const monthlyReturn = Math.pow(1 + annualReturn, 1/12) - 1;
+            
+            for (let i = 0; i < years * 12; i++) {
+                futureValue = futureValue * (1 + monthlyReturn) + monthlyContribution;
+            }
+            
+            // Get currency info
+            const currencySymbol = exchangeRates[currency].symbol;
+            const formattedValue = futureValue.toLocaleString(undefined, {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 2
+            });
+            
+            // Display result
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `
+                <h2>Retirement Savings Projection</h2>
+                <p>At age ${retirementAge}, your retirement savings will be:</p>
+                <h3>${currencySymbol}${formattedValue}</h3>
+                <p>Based on:</p>
+                <ul>
+                    <li>${years} years of growth</li>
+                    <li>${currencySymbol}${currentSavings.toLocaleString()} initial savings</li>
+                    <li>${currencySymbol}${monthlyContribution.toLocaleString()} monthly contributions</li>
+                    <li>${(annualReturn*100).toFixed(1)}% annual return</li>
+                </ul>
+            `;
+            resultElement.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
